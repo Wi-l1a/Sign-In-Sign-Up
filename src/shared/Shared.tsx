@@ -10,11 +10,12 @@ export const AnimatedRoute = ({ children }: { children: React.ReactNode }) => {
         switch (path) {
             case '/sign-in':
                 return {
-                    initial: { opacity: 0, x: '-100vw', transition: { duration: 0.5 } },
+                    initial: { opacity: 0, x: '-100vw', },
                     animate: { opacity: 1, x: 0 },
                     exit: { opacity: 0, x: '100vw' },
                 };
             case '/sign-up':
+            case '/forgot-password':
                 return {
                     initial: { opacity: 0, x: '100vw' },
                     animate: { opacity: 1, x: 0 },
@@ -85,9 +86,10 @@ export const Input = ({ name, label, type }: InputProps) => {
 
 
 interface ButtonProps {
-    onClick: () => void;
+    onClick?: () => void;
     children: React.ReactNode;
 }
+
 export const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
     return (
         <button

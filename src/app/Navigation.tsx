@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import SignIn from "../pages/sign-in/SignIn";
 import SignUp from "../pages/sign-up/SignUp";
 import { AnimatedRoute } from "../shared/Shared";
+import ForgotPassword from "../pages/forgot-password/ForgotPassword";
 
 
 const Navigation = () => {
@@ -14,6 +15,7 @@ const Navigation = () => {
                 <Route path="/" element={<AnimatedRoute><SignIn /></AnimatedRoute>} />
                 <Route path="/sign-in" element={<AnimatedRoute><SignIn /></AnimatedRoute>} />
                 <Route path="/sign-up" element={<AnimatedRoute><SignUp /></AnimatedRoute>} />
+                <Route path="/forgot-password" element={<AnimatedRoute><ForgotPassword /></AnimatedRoute>} />
             </Routes>
         </AnimatePresence>
     );

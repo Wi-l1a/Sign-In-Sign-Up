@@ -1,8 +1,8 @@
 import React, { FormEvent } from 'react'
-import s from './SignUp.module.sass'
+import s from './ForgotPassword.module.sass'
 import { NavLink, Input, Button } from '../../shared/Shared'
 
-const SignUp = () => {
+const ForgotPassword = () => {
 
     const handlerSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -15,18 +15,17 @@ const SignUp = () => {
     }
 
 
+
     return (
         <section className={s.section}>
             <div className={s.container}>
                 <div className={s.box}>
-                    <h2>Welcome to <span>Sign-Up</span></h2>
+                    <h2>Welcome to <span>Forgot-Password</span></h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis minima consequatur alias distinctio libero modi qui similique.</p>
-                    <h3>Create Account</h3>
+                    <h3>Password Recovery</h3>
                     <form onSubmit={handlerSubmit}>
-                        <Input type={'text'} name={'name'} label={'Name'} />
                         <Input type={'text'} name={'email'} label={'Email'} />
-                        <Input type={'password'} name={'сonfirm-password'} label={'Confirm password'} />
-                        <Button>Sign-Up</Button>
+                        <Button>Send</Button>
                     </form>
                     <NavLink to={'/sign-in'}>Already have an account?</NavLink>
                 </div>
@@ -36,4 +35,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default ForgotPassword
