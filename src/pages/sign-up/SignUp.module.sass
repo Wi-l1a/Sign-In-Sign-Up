@@ -1,0 +1,61 @@
+.section
+    display: flex
+    flex-direction: row-reverse
+    .container
+        flex: 0 1 70%
+        display: flex
+        align-items: center
+        justify-content: center
+        .box
+            max-width: 45%
+            display: flex
+            flex-direction: column
+            align-items: center
+            gap: 20px
+            >p
+                text-align: center
+                color: #666
+            h2
+                font-weight: 900
+                font-size: 2pc
+                span
+                    color: #0096fa
+            h3
+                font-size: 20px
+            a
+                margin-right: auto
+                transition: 0.2s
+                color: #0096fa
+                &:hover
+                    color: #87cefd
+            form
+                width: 100%
+                >div
+                    margin-bottom: 30px
+                button
+                    display: block
+                    width: 100%
+                    margin-top: 50px
+                    background: #0096fa
+                    color: #FFF
+                    transition: 0.2s
+                    &:hover
+                        background: #87cefd
+
+.sidebar
+    display: flex
+    flex: 0 1 35%
+    height: 100vh
+    margin-right: auto
+    background: url('../../assets/bg_sign-up.jpg') center / cover no-repeat
+    &::before
+        content: ''
+        margin-right: auto
+        width: 80%
+        height: 100%
+        background: #dddddd3f
+        display: flex
+        justify-content: center
+        align-items: center
+        backdrop-filter: blur(3px)
+        box-shadow: 0px 0px 20px 0px #00000038

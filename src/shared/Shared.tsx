@@ -6,11 +6,30 @@ import s from './Shared.module.sass'
 export const AnimatedRoute = ({ children }: { children: React.ReactNode }) => {
     const location = useLocation();
 
-    const animations = {
-        initial: { opacity: 0, x: 100 },
-        animate: { opacity: 1, x: 0 },
-        exit: { opacity: 0, x: -100 },
+    const getAnimations = (path: string) => {
+        switch (path) {
+            case '/sign-in':
+                return {
+                    initial: { opacity: 0, x: '-100vw', transition: { duration: 0.5 } },
+                    animate: { opacity: 1, x: 0 },
+                    exit: { opacity: 0, x: '100vw' },
+                };
+            case '/sign-up':
+                return {
+                    initial: { opacity: 0, x: '100vw' },
+                    animate: { opacity: 1, x: 0 },
+                    exit: { opacity: 0, x: '-100vw' },
+                };
+            default:
+                return {
+                    initial: { opacity: 0, x: 0 },
+                    animate: { opacity: 1, x: 0 },
+                    exit: { opacity: 0, x: 0 },
+                };
+        }
     };
+
+    const animations = getAnimations(location.pathname);
 
     return (
         <div style={{ overflowX: 'hidden' }}>
@@ -20,16 +39,16 @@ export const AnimatedRoute = ({ children }: { children: React.ReactNode }) => {
                 animate="animate"
                 exit="exit"
                 variants={animations}
-                transition={{ duration: 0.5 }}
-                style={{ width: '100vw', overflowX: 'hidden' }}
+                transition={{
+                    when: "beforeChildren",
+                    staggerChildren: 0.3,
+                }}
             >
                 {children}
             </motion.div>
         </div>
     );
-
 };
-
 
 interface NavLinkProps {
     to: string;
@@ -43,3 +62,37 @@ export const NavLink = ({ to, children }: NavLinkProps) => (
     </RouterNavLink>
 );
 
+
+interface InputProps {
+    name: string;
+    label: string;
+    type: string
+}
+export const Input = ({ name, label, type }: InputProps) => {
+    return (
+        <div className={s.inputGroup}>
+            <input
+                required
+                type={type}
+                name={name}
+                autoComplete="off"
+                className={s.input}
+            />
+            <label className={s.userLabel}>{label}</label>
+        </div>
+    );
+};
+
+
+interface ButtonProps {
+    onClick: () => void;
+    children: React.ReactNode;
+}
+export const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
+    return (
+        <button
+            onClick={onClick}>
+            {children}
+        </button>
+    );
+};
