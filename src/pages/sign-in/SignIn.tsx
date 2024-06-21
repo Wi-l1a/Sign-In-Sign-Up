@@ -1,7 +1,7 @@
 import React, { FormEvent } from 'react'
 import s from './SignIn.module.sass'
 import { Button, NavLink, Input } from '../../shared/Shared'
-
+import bg from '../../assets/bg_sign-in.jpg'
 
 const SignIn = () => {
 
@@ -32,7 +32,9 @@ const SignIn = () => {
           <NavLink to={'/sign-up'}>Don't have an account yet?</NavLink>
         </div>
       </div>
-      <div className={s.sidebar}></div>
+      <div className={s.sidebar}>
+        <img src={bg} alt="img" />
+      </div>
     </section>
   )
 }

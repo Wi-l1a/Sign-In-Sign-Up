@@ -1,7 +1,7 @@
 import React, { FormEvent } from 'react'
 import s from './SignUp.module.sass'
 import { NavLink, Input, Button } from '../../shared/Shared'
-
+import bg from '../../assets/bg_sign-up.jpg'
 const SignUp = () => {
 
     const handlerSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -31,7 +31,9 @@ const SignUp = () => {
                     <NavLink to={'/sign-in'}>Already have an account?</NavLink>
                 </div>
             </div>
-            <div className={s.sidebar}></div>
+            <div className={s.sidebar}>
+                <img src={bg} alt="img" />
+            </div>
         </section>
     )
 }

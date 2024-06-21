@@ -1,7 +1,7 @@
 import React, { FormEvent } from 'react'
 import s from './ForgotPassword.module.sass'
 import { NavLink, Input, Button } from '../../shared/Shared'
-
+import bg from '../../assets/bg_sign-up.jpg'
 const ForgotPassword = () => {
 
     const handlerSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -30,7 +30,9 @@ const ForgotPassword = () => {
                     <NavLink to={'/sign-in'}>Already have an account?</NavLink>
                 </div>
             </div>
-            <div className={s.sidebar}></div>
+            <div className={s.sidebar}>
+                <img src={bg} alt="img" />
+            </div>
         </section>
     )
 }
